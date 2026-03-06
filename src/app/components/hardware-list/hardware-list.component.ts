@@ -12,17 +12,17 @@ import { Hardware } from '../../services/hardware.service';
            class="hardware-card glass-panel fade-in" 
            (click)="selectItem.emit(item)">
         <div class="img-frame">
-          <img [src]="item.thumbnail" [alt]="item.title">
-          <div class="category-pill">{{ item.category | titlecase }}</div>
+          <img [src]="item.imagen" [alt]="item.titulo">
+          <div class="category-pill">{{ item.categoria | titlecase }}</div>
         </div>
         <div class="card-info">
           <div class="header-row">
-            <h3>{{ item.title }}</h3>
+            <h3>{{ item.titulo }}</h3>
             <span class="rating">★ {{ item.rating }}</span>
           </div>
-          <p class="brand">{{ item.brand }}</p>
+          <p class="marca">{{ item.marca }}</p>
           <div class="footer-row">
-            <span class="price">\${{ item.price }}</span>
+            <span class="precio">\${{ item.precio }}</span>
             <button class="btn-tech">Ver Specs</button>
           </div>
         </div>

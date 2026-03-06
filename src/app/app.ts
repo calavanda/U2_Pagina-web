@@ -172,7 +172,7 @@ export class AppComponent implements OnInit {
     this.heroTitle = category === 'todos' ? 'High-End Computing' : category.toUpperCase();
     this.cdr.detectChanges();
 
-    this.hardwareService.getHardwareByCategory(category).subscribe({
+    this.hardwareService.getHardwareByCategoria(category).subscribe({
       next: (data) => {
         this.filteredHardware = data;
         this.loading = false;
