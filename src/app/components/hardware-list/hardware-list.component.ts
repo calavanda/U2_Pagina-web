@@ -12,7 +12,9 @@ import { Hardware } from '../../services/hardware.service';
            class="hardware-card glass-panel fade-in" 
            (click)="selectItem.emit(item)">
         <div class="img-frame">
-          <img [src]="item.imagen" [alt]="item.titulo">
+          <img [src]="item.miniatura" 
+               [alt]="item.titulo"
+               (error)="handleImageError($event)">
           <div class="category-pill">{{ item.categoria | titlecase }}</div>
         </div>
         <div class="card-info">
@@ -20,9 +22,9 @@ import { Hardware } from '../../services/hardware.service';
             <h3>{{ item.titulo }}</h3>
             <span class="rating">★ {{ item.rating }}</span>
           </div>
-          <p class="marca">{{ item.marca }}</p>
+          <p class="brand">{{ item.marca }}</p>
           <div class="footer-row">
-            <span class="precio">\${{ item.precio }}</span>
+            <span class="price">\${{ item.precio }}</span>
             <button class="btn-tech">Ver Specs</button>
           </div>
         </div>
@@ -85,8 +87,10 @@ import { Hardware } from '../../services/hardware.service';
   `]
 })
 export class HardwareListComponent {
-  // REQUISITO: Elementos dinámicos - Galería reactiva al estado de búsqueda
   @Input() items: Hardware[] = [];
-  // REQUISITO: Eventos - Emisión de selección al componente padre
   @Output() selectItem = new EventEmitter<Hardware>();
+
+  handleImageError(event: any) {
+    event.target.src = 'https://images.unsplash.com/photo-1588872214464-f61b72e5057f?auto=format&fit=crop&q=80&w=400';
+  }
 }

@@ -12,14 +12,14 @@ import { Hardware } from '../../services/hardware.service';
         <button class="close-btn" (click)="close.emit()"></button>
         
         <div class="modal-body" *ngIf="item">
-          <div class="modal-imagen">
+          <div class="modal-image">
             <img [src]="item.imagen[0] || item.miniatura" [alt]="item.titulo">
             <div class="tech-badge">TECNOLOGÍA PUNTA</div>
           </div>
           <div class="modal-info">
-            <span class="category-tag">{{ item.categoria | uppercase }}</span>
+            <span class="categoria-tag">{{ item.categoria | uppercase }}</span>
             <h2>{{ item.titulo }}</h2>
-            <p class="brand">Marca: <strong>{{ item.marca }}</strong></p>
+            <p class="marca">Marca: <strong>{{ item.marca }}</strong></p>
             
             <div class="specs-box">
               <h3>Especificaciones Técnicas</h3>
@@ -43,10 +43,10 @@ import { Hardware } from '../../services/hardware.service';
               </div>
             </div>
 
-            <p class="description">{{ item.descripcion }}</p>
+            <p class="descripcion">{{ item.descripcion }}</p>
             
             <div class="action-row">
-              <div class="precio-stack">
+              <div class="price-stack">
                 <span class="stock" [class.low]="item.stock < 10">
                   {{ item.stock }} unidades disponibles
                 </span>
@@ -69,7 +69,7 @@ import { Hardware } from '../../services/hardware.service';
       background: rgba(10, 10, 15, 0.9);
       backdrop-filter: blur(15px);
       z-index: 1000;
-      pantalla: flex;
+      display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
@@ -95,7 +95,7 @@ import { Hardware } from '../../services/hardware.service';
       cursor: pointer;
       line-height: 1;
     }
-    .modal-body { pantalla: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; padding: 3rem; }
+    .modal-body { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; padding: 3rem; }
     @media (max-width: 850px) { .modal-body { grid-template-columns: 1fr; } }
     
     .modal-image { position: relative; }
@@ -111,9 +111,9 @@ import { Hardware } from '../../services/hardware.service';
       border-radius: 4px;
     }
 
-    .category-tag { color: var(--primary); font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; }
+    .categoria-tag { color: var(--primary); font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; }
     h2 { font-size: 2.5rem; margin: 0.5rem 0; }
-    .brand { color: var(--text-muted); margin-bottom: 2rem; }
+    .marca { color: var(--text-muted); margin-bottom: 2rem; }
     
     .specs-box {
       background: rgba(255,255,255,0.03);
@@ -123,16 +123,16 @@ import { Hardware } from '../../services/hardware.service';
       border-left: 4px solid var(--primary);
     }
     .specs-box h3 { font-size: 1rem; margin-bottom: 1rem; color: var(--primary); }
-    .specs-grid { pantalla: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .spec-item .label { pantalla: block; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+    .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .spec-item .label { display: block; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
     .spec-item .val { font-weight: 600; font-size: 0.9rem; }
 
     .description { line-height: 1.6; color: var(--text-muted); margin-bottom: 2rem; }
-    .action-row { pantalla: flex; justify-content: space-between; align-items: flex-end; }
-    .precio-stack { pantalla: flex; flex-direction: column; }
+    .action-row { display: flex; justify-content: space-between; align-items: flex-end; }
+    .price-stack { display: flex; flex-direction: column; }
     .stock { font-size: 0.8rem; margin-bottom: 0.3rem; }
     .stock.low { color: #f43f5e; font-weight: 700; }
-    .precio { font-size: 2.5rem; font-weight: 800; color: var(--accent); }
+    .price { font-size: 2.5rem; font-weight: 800; color: var(--accent); }
   `]
 })
 export class DetailModalComponent {
