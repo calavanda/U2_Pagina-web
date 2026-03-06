@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
         <input 
           type="text" 
           (keyup)="onSearch(\$event)"
-          placeholder="Busca películas, series o productos..."
+          placeholder="Busca procesadores, laptops, tarjetas gráficas..."
           class="search-input"
         >
       </div>
